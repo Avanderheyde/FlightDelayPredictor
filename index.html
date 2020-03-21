@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="assets/code.js"></script>
+    <title>Flight Delay App</title>
+  </head>
+  <body>
+    <br>
+    <a href="index.html"><img class="logo" src="assets/final_v1.png" alt=""></a>
+    <br>
+    <div class="container main">
+  <div class="jumbotron" id="holder">
+    <h1 class='main_heading'> Flight Delay Predictor</h1>
+    <h3>Using random forest model</h3>
+    <br>
+    <div class="instructions">
+      <h2>Instructions: </h2>
+      <p>1. Enter flight info</p>
+      <p>2. Hit Submit! </p>
+    </div>
+    <br>
+    <br>
+    <form action = '/' method = 'POST' class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Feature1:</label>
+        <div class="col-sm-10">
+          <input  class="form-control" id="dayofweek" placeholder="Enter Day of the Week as a number" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature2:</label>
+        <div class="col-sm-10">
+          <input  class="form-control" id="day" placeholder="Enter Day" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature3:</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="month" placeholder=" Enter Month" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature4:</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="dep" placeholder=" Enter Departure time Ex. 1:40 = 1340" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature5:</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="arr" placeholder=" Enter Arrival Time Ex. 3:30 = 1530" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" >Feature6:</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="elap" placeholder=" Enter expected elapse time in minutes" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-primary" value = "Make prediction">
+        </div>
+      </div>
+    </form>
+
+    {% if sentiment %}
+        <p> {{sentiment}} </p>
+    {% endif %}
+  </div>
+</div>
+<!-- 5 5 12 1628 1806 98 -->
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <div class="footer-copyright text-center py-3">
+    <div class="bottom">
+      <p><a href="https://github.com/Avanderheyde/FlightDelayPredictor">Site Github Repository</a></p>
+    </div>
+  </div>
+
+</footer>
+<!-- Footer -->
+
+
+  </body>
+</html>
