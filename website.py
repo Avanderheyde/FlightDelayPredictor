@@ -11,6 +11,7 @@ model = pickle.load(open('model.pkl','rb'))
 def home():
     if request.method == 'POST':
         flight_info = []
+        print("inside post")
         dayofweek = request.form.get('dayofweek')
         day = request.form.get('day')
         month = request.form.get('month')
@@ -23,7 +24,8 @@ def home():
         flight_info.append(dep)
         flight_info.append(arr)
         flight_info.append(elap)
-        df = pd.DataFrame([flightinfo])
+        print(flight_info)
+        df = pd.DataFrame([flight_info])
         # Make prediction
         print(df.head())
         pred = model.predict(df)
@@ -32,8 +34,8 @@ def home():
             delay = "Your flight will be delayed over an hour"
         else:
             delay = 'Your flight will not be delayed over an hour'
-        return render_template('index.html', sentiment=delay)
-    return render_template('index.html', sentiment='')
+        return render_template('index.html', prediction=delay)
+    return render_template('index.html', prediction='')
     
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
